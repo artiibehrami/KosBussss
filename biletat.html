@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bli Biletën - BusTrip KS</title>
+  <link rel="icon" href="KosBuslogo.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav>
+    <div class="div1"><strong><a href="index.html">BusTrip KS 🚍🚏</a></strong></div>
+    <ul>
+      <li><a href="index.html" class="nav-link">Ballina</a></li>
+      <li><a href="biletat.html" class="nav-link active">Bli biletën</a></li>
+      <li><a href="rruget.html" class="nav-link">Rruget</a></li>
+      <li><a href="orari.html" class="nav-link">Orari</a></li>
+      <li><a href="rrethnesh.html" class="nav-link">Rreth nesh</a></li>
+      <li><a href="kontakti.html" class="nav-link">Kontakti</a></li>
+      <li><a href="ekipa.html">Ekipi</a></li>
+    </ul>
+  </nav>
+
+  <section class="ticket-section">
+    <h1>Bli Biletën Tani 🎫</h1>
+    <p>Zgjidh destinacionin, datën dhe rezervoni vendin tuaj në autobus!</p>
+
+    <form class="ticket-form">
+      <label for="nisja">Nisja:</label>
+      <select id="nisja">
+        <option>Zgjidh qytetin e nisjes</option>
+        <option>Prishtinë</option>
+        <option>Prizren</option>
+        <option>Pejë</option>
+        <option>Gjakovë</option>
+        <option>Mitrovicë</option>
+        <option>Ferizaj</option>
+        <option>Gjilan</option>
+        <option>Podujevë</option>
+        <option>Vushtrri</option>
+        <option>Suharekë</option>
+      </select>
+      
+      <label for="destinacioni">Destinacioni:</label>
+      <select id="destinacioni">
+        <option>Zgjidh qytetin e destinacionit</option>
+        <option>Prishtinë</option>
+        <option>Prizren</option>
+        <option>Pejë</option>
+        <option>Gjakovë</option>
+        <option>Mitrovicë</option>
+        <option>Ferizaj</option>
+        <option>Gjilan</option>
+        <option>Podujevë</option>
+        <option>Vushtrri</option>
+        <option>Suharekë</option>
+      </select>
+
+      <label for="date">Data e udhëtimit:</label>
+      <input type="date" id="date" required>
+
+      <label for="passenger">Numri i pasagjerëve:</label>
+      <input type="number" id="passenger" min="1" value="1" required>
+
+      <div id="price-container">
+        <p><strong></strong> <span id="price">Të dhënat e çmimit do të shfaqen këtu.</span></p>
+      </div>
+
+      <button type="submit" class="btn">Rezervo Biletën</button>
+    </form>
+  </section>
+>
+  <section class="payment-section">
+    <h2>Pagesa me Kartë</h2>
+    <form class="payment-form">
+      <label for="card-number">Numri i Kartës:</label>
+      <input type="text" id="card-number" placeholder="Numri i kartës tuaj" required>
+
+      <label for="expiry-date">Data e Skadimit:</label>
+      <input type="text" id="expiry-date" placeholder="MM/YY" required>
+
+      <label for="cvv">CVV:</label>
+      <input type="text" id="cvv" placeholder="CVV" required>
+
+      <label for="cardholder">Emri i Mbajtësit të Kartës:</label>
+      <input type="text" id="cardholder" placeholder="Emri dhe mbiemri" required>
+      
+      <button type="submit" class="btn">Paguaj</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 BusTrip KS. Të gjitha të drejtat e rezervuara.</p>
+    <div class="footer-links">
+      <span>Kontakt | Privatësia | Punuar nga IA students</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
