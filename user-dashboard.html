@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboardi i Përdoruesit - BusTrip KS</title>
+  <link rel="icon" href="KosBuslogo.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="login-container" class="login-section">
+    <form id="login-form" class="login-form">
+      <h2>Kyçu në llogarinë tënde</h2>
+      <div class="login-fields">
+        <label for="username">Përdoruesi</label>
+        <input type="text" id="username" placeholder="Shkruani përdoruesin tuaj" autocomplete="username" required>
+        <label for="password">Fjalëkalimi</label>
+        <input type="password" id="password" placeholder="Shkruani fjalëkalimin" autocomplete="current-password" required>
+      </div>
+      <div class="login-options">
+        <label class="remember-me"><input type="checkbox" id="remember-me"> Më mbaj mend</label>
+        <a href="#" id="forgot-link">Keni harruar fjalëkalimin?</a>
+      </div>
+      <button type="submit" class="btn">Kyçu</button>
+      <div class="login-social">
+        <span>Ose kyçu me:</span>
+        <button type="button" class="btn social-btn google">Google</button>
+        <button type="button" class="btn social-btn facebook">Facebook</button>
+      </div>
+      <p id="login-error" class="login-error" style="display:none;">Përdoruesi ose fjalëkalimi gabim!</p>
+      <p class="signup-link">Nuk keni llogari? <a href="signup.html">Regjistrohu këtu</a></p>
+    </form>
+  </div>
+
+  <div id="dashboard-wrapper" style="display:none;">
+    <nav>
+      <div class="div1"><strong><a href="index.html">BusTrip KS 🚍🚏</a></strong></div>
+      <ul>
+        <li><a href="index.html">Ballina</a></li>
+        <li><a href="biletat.html">Bli biletën</a></li>
+        <li><a href="rruget.html">Rruget</a></li>
+        <li><a href="orari.html">Orari</a></li>
+        <li><a href="rrethnesh.html">Rreth nesh</a></li>
+        <li><a href="kontakti.html">Kontakti</a></li>
+        <li><a href="ekipa.html">Ekipi</a></li>
+        <li><a class="active" href="user-dashboard.html">Dashboardi</a></li>
+        <li><a href="admin-dashboard.html">Admin</a></li>
+        <li><a href="login.html">Kyçu</a></li>
+        <li><a href="signup.html">Regjistrohu</a></li>
+      </ul>
+    </nav>
+
+    <main class="dashboard-section dashboard-modern">
+      <aside class="dashboard-sidebar">
+        <ul id="dashboard-tabs">
+          <li class="active" data-tab="profile">👤 Profili im</li>
+          <li data-tab="travels">🚌 Lista e udhëtimeve</li>
+          <li data-tab="tickets">🎫 Biletat e blera</li>
+          <li data-tab="destinations">🌍 Destinacionet</li>
+          <li data-tab="logout" class="logout-tab">🚪 Dil</li>
+        </ul>
+      </aside>
+      <section class="dashboard-content" id="dashboard-content">
+        <div class="dashboard-welcome">
+          <h2>Mirësevini në panelin tuaj personal!</h2>
+          <p>Këtu mund të shikoni të gjitha udhëtimet, biletat, njoftimet dhe statistikat tuaja.</p>
+        </div>
+        <div class="dashboard-notifications">
+          <h3>🔔 Njoftimet e fundit</h3>
+          <ul class="notifications-list">
+            <li>Pagesa për biletën Prishtinë → Pejë u krye me sukses. <span class="notif-date">02 Qershor 2025</span></li>
+            <li>Orari i linjës Prizren → Mitrovicë është përditësuar. <span class="notif-date">01 Qershor 2025</span></li>
+            <li>Ofertë: 10% zbritje për udhëtimet gjatë javës! <span class="notif-date">31 Maj 2025</span></li>
+          </ul>
+        </div>
+        <div class="dashboard-stats">
+          <h3>📊 Statistikat e mia</h3>
+          <div class="stats-grid">
+            <div class="stat-card"><span class="stat-num">5</span><span class="stat-label">Bileta të blera</span></div>
+            <div class="stat-card"><span class="stat-num">3</span><span class="stat-label">Udhëtime të ardhshme</span></div>
+            <div class="stat-card"><span class="stat-num">2</span><span class="stat-label">Udhëtime të përfunduara</span></div>
+            <div class="stat-card"><span class="stat-num">1</span><span class="stat-label">Ofertë aktive</span></div>
+          </div>
+        </div>
+        <div class="dashboard-favorites">
+          <h3>⭐ Rrugët e preferuara</h3>
+          <ul class="favorites-list">
+            <li>Prishtinë → Pejë</li>
+            <li>Gjakovë → Ferizaj</li>
+            <li>Prizren → Mitrovicë</li>
+          </ul>
+        </div>
+        <div class="dashboard-help">
+          <h3>❓ Ndihmë dhe Mbështetje</h3>
+          <p>Për çdo pyetje ose problem, kontaktoni ekipin tonë në <a href="kontakti.html">faqen e kontaktit</a> ose shikoni <a href="#" onclick="alert('Së shpejti!')">FAQ</a>.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 BusTrip KS. Të gjitha të drejtat e rezervuara.</p>
+      <div class="footer-links">
+        <span>Kontakt | Privatësia | Punuar nga IA students</span>
+      </div>
+    </footer>
+  </div>
+  <script src="script.js"></script>
+  <script>
+    // Modern login logic
+    const loginForm = document.getElementById('login-form');
+    const loginContainer = document.getElementById('login-container');
+    const dashboardWrapper = document.getElementById('dashboard-wrapper');
+    const loginError = document.getElementById('login-error');
+    const validUser = { username: 'sara17', password: '1234' };
+    let loggedIn = false;
+
+    loginForm.onsubmit = function(e) {
+      e.preventDefault();
+      const u = document.getElementById('username').value.trim();
+      const p = document.getElementById('password').value.trim();
+      if (u === validUser.username && p === validUser.password) {
+        loggedIn = true;
+        loginContainer.style.display = 'none';
+        dashboardWrapper.style.display = 'block';
+        renderDashboard('profile');
+      } else {
+        loginError.style.display = 'block';
+      }
+    };
+
+    // Dashboard tab logic
+    const tabs = document.getElementById('dashboard-tabs');
+    const content = document.getElementById('dashboard-content');
+    if (tabs) {
+      tabs.addEventListener('click', function(e) {
+        if (e.target.tagName === 'LI') {
+          tabs.querySelectorAll('li').forEach(li => li.classList.remove('active'));
+          e.target.classList.add('active');
+          const tab = e.target.getAttribute('data-tab');
+          if (tab === 'logout') {
+            loggedIn = false;
+            dashboardWrapper.style.display = 'none';
+            loginContainer.style.display = 'block';
+            loginForm.reset();
+            loginError.style.display = 'none';
+          } else {
+            renderDashboard(tab);
+          }
+        }
+      });
+    }
+
+    // Dalja në Ballina nga navbar
+    const navLinks = document.querySelectorAll('nav ul li a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        if (link.getAttribute('href') === 'index.html') {
+          // Reset login state for security
+          loggedIn = false;
+          dashboardWrapper.style.display = 'none';
+          loginContainer.style.display = 'block';
+          loginForm.reset();
+          loginError.style.display = 'none';
+        }
+      });
+    });
+
+    function renderDashboard(tab) {
+      const username = document.getElementById('username').value.trim();
+      if (tab === 'profile') {
+        content.innerHTML = `<div class='dashboard-card'><h2>Profili im</h2><p><strong>Përdoruesi:</strong> ${username}</p><p><strong>Email:</strong> ${username}@email.com</p></div>`;
+      } else if (tab === 'travels') {
+        content.innerHTML = `<div class='dashboard-card'><h2>Lista e udhëtimeve</h2><ul><li>Prishtinë → Pejë | 02/06/2025</li><li>Mitrovicë → Prizren | 15/05/2025</li></ul></div>`;
+      } else if (tab === 'tickets') {
+        content.innerHTML = `<div class='dashboard-card'><h2>Biletat e blera</h2><ul><li>Biletë #12345 | Prishtinë → Pejë | 02/06/2025</li></ul></div>`;
+      } else if (tab === 'destinations') {
+        content.innerHTML = `<div class='dashboard-card'><h2>Destinacionet</h2><ul><li>Prizren</li><li>Pejë</li><li>Mitrovicë</li></ul></div>`;
+      }
+    }
+
+    const forgotLink = document.getElementById('forgot-link');
+    forgotLink.onclick = function(e) {
+      e.preventDefault();
+      alert('Funksioni për rikthim të fjalëkalimit do të vijë së shpejti!');
+    };
+
+    const googleBtn = document.querySelector('.social-btn.google');
+    googleBtn.onclick = function() {
+      alert('Kyçja me Google është vetëm demo!');
+    };
+    const facebookBtn = document.querySelector('.social-btn.facebook');
+    facebookBtn.onclick = function() {
+      alert('Kyçja me Facebook është vetëm demo!');
+    };
+  </script>
+</body>
+</html>

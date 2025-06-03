@@ -21,6 +21,10 @@
       <li><a href="rrethnesh.html">Rreth nesh</a></li>
       <li><a href="kontakti.html">Kontakti</a></li>
       <li><a href="ekipa.html">Ekipi</a></li>
+      <li><a href="user-dashboard.html">Dashboardi</a></li>
+      <li><a href="admin-dashboard.html">Admin</a></li>
+      <li><a href="login.html">Kyçu</a></li>
+      <li><a href="signup.html">Regjistrohu</a></li>
     </ul>
   </nav>
 
@@ -66,9 +70,22 @@
     </form>
   </section>
 
-  <div class="map-placeholder">
-    <p>🚏 Harta e rrugëve - Së shpejti me përditësime të drejtpërdrejta</p>
-  </div>
+  <div class="map-section">
+      <h2 style="margin-bottom:10px;">Harta Interaktive e Rrugëve</h2>
+      <div id="map" style="width:100%;height:350px;border-radius:12px;"></div>
+      <div class="map-legend">
+        <span style="background:#3388ff;width:18px;height:8px;display:inline-block;border-radius:2px;margin-right:6px;"></span> Rrugët kryesore
+        <span style="background:#00b87b;width:18px;height:8px;display:inline-block;border-radius:2px;margin:0 6px 0 18px;"></span> Qytetet kryesore
+      </div>
+    </div>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="script.js"></script>
+  <style>
+    .map-section { margin: 40px 0 24px 0; background: #fff; border-radius: 14px; box-shadow: 0 2px 12px #0001; padding: 24px; }
+    .map-legend { margin-top: 10px; font-size: 1rem; display: flex; gap: 18px; flex-wrap: wrap; }
+    .legend-dot { display: inline-block; width: 14px; height: 14px; border-radius: 50%; margin-right: 6px; vertical-align: middle; }
+    @media (max-width: 700px) { .map-section { padding: 10px; } #main-map { height: 220px !important; } }
+  </style>
   
   <section class="impact-section">
     <h2>📊 Ndikimi i platformës BusTrip KS</h2>
@@ -78,6 +95,31 @@
       <div class="stat">💻 Krijuar nga nxënësit e Innovation Academy</div>
     </div>
   </section>
+
+  <div class="why-book-box">
+        <h3>Pse të zgjidhni BusTrip KS?</h3>
+        <ul>
+          <li>✔️ Platformë moderne dhe e lehtë për përdorim</li>
+          <li>✔️ Rezervim i shpejtë dhe i sigurt online</li>
+          <li>✔️ Mbështetje 24/7 për çdo pyetje</li>
+          <li>✔️ Informacione të përditësuara për oraret dhe rrugët</li>
+        </ul>
+      </div>
+      <div class="faq-section">
+        <h3>Pyetjet më të shpeshta</h3>
+        <div class="faq-item">
+          <button class="faq-question">Si funksionon BusTrip KS?</button>
+          <div class="faq-answer">Zgjidhni rrugën, datën dhe rezervoni biletën tuaj online në pak hapa të thjeshtë.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">A është platforma falas?</button>
+          <div class="faq-answer">Po, përdorimi i platformës është plotësisht falas. Pagesa bëhet vetëm për biletat e udhëtimit.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Si mund të kontaktoj mbështetjen?</button>
+          <div class="faq-answer">Na kontaktoni përmes faqes 'Kontakti' ose në emailin zyrtar të BusTrip KS.</div>
+        </div>
+      </div>
   
   <footer>
     <p>&copy; 2025 BusTrip KS. Të gjitha të drejtat e rezervuara.</p>
@@ -86,5 +128,43 @@
     </div>
   </footer>
   
+  <script>
+    // Leaflet map initialization for index.html
+    document.addEventListener('DOMContentLoaded', function() {
+      if (document.getElementById('map')) {
+        var map = L.map('map').setView([42.56, 20.93], 8);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          maxZoom: 18,
+          attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+        // Main cities
+        var cities = [
+          { name: 'Prishtinë', coords: [42.6629, 21.1655] },
+          { name: 'Prizren', coords: [42.2139, 20.7397] },
+          { name: 'Pejë', coords: [42.6557, 20.2896] },
+          { name: 'Gjakovë', coords: [42.3803, 20.4300] },
+          { name: 'Mitrovicë', coords: [42.8900, 20.8667] },
+          { name: 'Ferizaj', coords: [42.3706, 21.1550] },
+          { name: 'Gjilan', coords: [42.4634, 21.4691] },
+          { name: 'Podujevë', coords: [42.9106, 21.1925] },
+          { name: 'Vushtrri', coords: [42.8231, 20.9675] },
+          { name: 'Suharekë', coords: [42.3586, 20.8250] }
+        ];
+        cities.forEach(function(city) {
+          L.circleMarker(city.coords, {
+            radius: 7,
+            color: '#00b87b',
+            fillColor: '#00b87b',
+            fillOpacity: 0.9
+          }).addTo(map).bindPopup(city.name);
+        });
+        // Example main route (Prishtinë - Pejë)
+        L.polyline([
+          [42.6629, 21.1655], // Prishtinë
+          [42.6557, 20.2896]  // Pejë
+        ], {color: '#3388ff', weight: 5, opacity: 0.7}).addTo(map);
+      }
+    });
+  </script>
 </body>
-</html> 
+</html>
